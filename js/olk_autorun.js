@@ -199,7 +199,14 @@
         "<p style='margin-bottom:0in;line-height:normal'><span style='font-size:9.0pt'>Your family and personal time is important to me; after-hours responses not required or expected!</span></p >",
         { coercionType: Office.CoercionType.Html }
       );
-  	}
+    }
+    else{
+      Office.context.mailbox.item.body.setSignatureAsync(
+        "<p style='margin-bottom:0in;line-height:normal'><span style='font-size:9.0pt'>------------</span></p>" + 
+        "<p style='margin-bottom:0in;line-height:normal'><span style='font-size:9.0pt'>ANSWER ASAP PLEASE!</span></p >",
+        { coercionType: Office.CoercionType.Html }
+      );
+    }
     eventObj.completed();
   }
   exports.onNewComposeHandler = onNewComposeHandler;
