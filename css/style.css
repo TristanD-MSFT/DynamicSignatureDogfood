@@ -1,0 +1,50 @@
+/*
+ * @file: ews.css
+ * @author: KwAnsong
+ */
+
+*
+{
+	color: #dddddd;
+	font-family: Arial, Sans-serif;
+}
+
+body
+{
+	height: 100%;
+	text-align: center;
+	background: #666666;
+}
+
+textarea#output
+{
+	color: #373737;
+	overflow:auto;
+	background: #b2b2b2;
+	border: 1px solid #444444;
+}
+
+body button
+{
+	background: #666666;
+	border: 1px solid #444444;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 5px;
+}
+
+span.event_name
+{
+	font-size: 0.9em;
+}
+
+div#api_status,
+div span
+{
+	font-size: 0.9em;
+}
+
+div.has-options
+{
+	border: 1px solid #444444;
+}
