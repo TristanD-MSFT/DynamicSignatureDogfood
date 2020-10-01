@@ -9,8 +9,8 @@
   <Version>1.0</Version>
   <ProviderName>Microsoft</ProviderName>
   <DefaultLocale>en-us</DefaultLocale>
-  <DisplayName DefaultValue="LaunchEvent Test"/>
-  <Description DefaultValue="LaunchEvent Test"/>
+  <DisplayName DefaultValue="Dynamic Signature Dogfood"/>
+  <Description DefaultValue="Automatically append a signature to email sent after working hours."/>
   <IconUrl DefaultValue="https://brave-ground-0b19db11e.azurestaticapps.net/icon.png"/>
   <HighResolutionIconUrl DefaultValue="https://brave-ground-0b19db11e.azurestaticapps.net/icon.png"/>
   <Requirements>
@@ -54,7 +54,7 @@
           </Runtimes>
           <DesktopFormFactor>
 
-            <!-- <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+            <ExtensionPoint xsi:type="MessageComposeCommandSurface">
               <OfficeTab id="TabDefault">
                 <Group id="mccsG0">
                   <Label resid="residGL0"/>
@@ -98,7 +98,7 @@
                   </Control>
                 </Group> 
               </OfficeTab>
-            </ExtensionPoint>  -->
+            </ExtensionPoint>
 
             <ExtensionPoint xsi:type="LaunchEvent">
               <LaunchEvents>

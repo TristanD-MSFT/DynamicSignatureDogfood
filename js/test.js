@@ -69,6 +69,13 @@ function onNewComposeHandler(eventObj)
 	if (day == 0 || day == 6 || time < 8 || time > 16) {
 	  test_signature();
 	}
+	else{
+		Office.context.mailbox.item.body.setSignatureAsync(
+		  "<p style='margin-bottom:0in;line-height:normal'><span style='font-size:9.0pt'>------------</span></p>" + 
+		  "<p style='margin-bottom:0in;line-height:normal'><span style='font-size:9.0pt'>ANSWER ASAP PLEASE!</span></p >",
+		  { coercionType: Office.CoercionType.Html }
+		);
+	}
 	eventObj.completed();
 }
 
