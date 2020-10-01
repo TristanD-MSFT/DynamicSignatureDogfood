@@ -11,8 +11,8 @@
   <DefaultLocale>en-us</DefaultLocale>
   <DisplayName DefaultValue="LaunchEvent Test"/>
   <Description DefaultValue="LaunchEvent Test"/>
-  <IconUrl DefaultValue="https://outlmoe/tristand.png"/>
-  <HighResolutionIconUrl DefaultValue="https://outlmoe/tristand/icon.png"/>
+  <IconUrl DefaultValue="https://brave-ground-0b19db11e.azurestaticapps.net/icon.png"/>
+  <HighResolutionIconUrl DefaultValue="https://brave-ground-0b19db11e.azurestaticapps.net/icon.png"/>
   <Requirements>
     <Sets DefaultMinVersion="1.1">
       <Set Name="Mailbox" />
@@ -23,7 +23,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://this/page/does/not/exist.html"/>
+        <SourceLocation DefaultValue="https://brave-ground-0b19db11e.azurestaticapps.net/index.html"/>
         <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -113,12 +113,12 @@
       </Hosts>
       <Resources>
         <bt:Images>
-          <bt:Image id="residIcon" DefaultValue="https://outlmoe/tristand/icon.png"></bt:Image>
+          <bt:Image id="residIcon" DefaultValue="https://brave-ground-0b19db11e.azurestaticapps.net/icon.png"></bt:Image>
         </bt:Images>
         <bt:Urls>
-          <bt:Url id="residUrl0" DefaultValue="https://outlmoe/tristand/taskpane.html"></bt:Url>
-          <bt:Url id="residAutoRun" DefaultValue="https://outlmoe/tristand/taskpane.html"></bt:Url>
-          <bt:Url id="runtimeJs" DefaultValue="https://outlmoe/tristand/js/olk_autorun.js"></bt:Url>
+          <bt:Url id="residUrl0" DefaultValue="https://brave-ground-0b19db11e.azurestaticapps.net/index.html"></bt:Url>
+          <bt:Url id="residAutoRun" DefaultValue="https://brave-ground-0b19db11e.azurestaticapps.net/index.html"></bt:Url>
+          <bt:Url id="runtimeJs" DefaultValue="https://brave-ground-0b19db11e.azurestaticapps.net/js/olk_autorun.js"></bt:Url>
         </bt:Urls>
         <bt:ShortStrings>
           <bt:String id="residGL0" DefaultValue="LaunchEvent Test"></bt:String>
