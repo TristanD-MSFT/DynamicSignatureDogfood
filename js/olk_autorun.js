@@ -187,6 +187,8 @@
   }
   function onNewComposeHandler(eventObj)
   {
+    //TODO: replace with my code
+    
     let d = new Date();
 
     Office.context.mailbox.item.body.setSignatureAsync

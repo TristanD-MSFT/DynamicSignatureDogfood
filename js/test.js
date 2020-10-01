@@ -59,34 +59,10 @@ function eval_output()
 	eval(_output.val());
 }
 
-function test_signature()
-{
-	let signature_str = (_output.val()).trim();
-
-	if (signature_str !== "")
-	{
-		Office.context.mailbox.item.body.setSignatureAsync
-		(
-			signature_str,
-
-			{
-				"coercionType": "html"
-			},
-
-			function (asyncResult)
-			{
-				showMessage(asyncResult);
-			}
-		);
-	}
-	else
-	{
-		showMessage("Enter signature string here!");
-	}
-}
-
 function onNewComposeHandler(eventObj)
 {
+	//TODO: replace with my function
+
 	let d = new Date();
 
 	Office.context.mailbox.item.body.setSignatureAsync
