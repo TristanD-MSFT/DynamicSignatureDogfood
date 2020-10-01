@@ -61,20 +61,22 @@ function eval_output()
 
 function onNewComposeHandler(eventObj)
 {
-	//TODO: replace with my function
+	//get current time
+	let today = new Date();
+	let time = today.getHours();
+	let day = today.getDay();
+  
+	if (day == 0 || day == 6 || time < 8 || time > 16) {
+	  test_signature();
+	}
+	eventObj.completed();
+}
 
-	let d = new Date();
-
-	Office.context.mailbox.item.body.setSignatureAsync
-	(
-		"This is an awesome signature! at " + d.toString(),
-		{
-			"coercionType": "html",
-			"asyncContext" : eventObj
-		},
-		function (asyncResult)
-		{
-			asyncResult.asyncContext.completed();
-		}
+function test_signature()
+{
+	Office.context.mailbox.item.body.setSignatureAsync(
+		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:9.0pt'>------------</span></p>" + 
+		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:9.0pt'>Your family and personal time is important to me…; after-hours responses not required or expected!</span></p >",
+		{ coercionType: Office.CoercionType.Html }
 	);
 }
