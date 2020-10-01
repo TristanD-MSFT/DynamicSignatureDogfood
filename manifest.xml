@@ -121,12 +121,12 @@
           <bt:Url id="runtimeJs" DefaultValue="https://brave-ground-0b19db11e.azurestaticapps.net/js/olk_autorun.js"></bt:Url>
         </bt:Urls>
         <bt:ShortStrings>
-          <bt:String id="residGL0" DefaultValue="LaunchEvent Test"></bt:String>
-          <bt:String id="residStr0" DefaultValue="LaunchEvent Test"></bt:String>
+          <bt:String id="residGL0" DefaultValue="Dynamic Signature"></bt:String>
+          <bt:String id="residStr0" DefaultValue="Test Taskpane"></bt:String>
         </bt:ShortStrings>
         <bt:LongStrings>
-          <bt:String id="residAppDesc" DefaultValue="LaunchEvent Test"></bt:String>
-          <bt:String id="residTT0" DefaultValue="LaunchEvent Test"></bt:String>
+          <bt:String id="residAppDesc" DefaultValue="Automatically append a signature to email sent after working hours."></bt:String>
+          <bt:String id="residTT0" DefaultValue="Open the taskpane (needed for debugging only)."></bt:String>
         </bt:LongStrings>
       </Resources>
     </VersionOverrides>
