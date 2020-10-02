@@ -54,7 +54,7 @@
           </Runtimes>
           <DesktopFormFactor>
 
-            <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+            <!-- <ExtensionPoint xsi:type="MessageComposeCommandSurface">
               <OfficeTab id="TabDefault">
                 <Group id="mccsG0">
                   <Label resid="residGL0"/>
@@ -98,12 +98,12 @@
                   </Control>
                 </Group> 
               </OfficeTab>
-            </ExtensionPoint>
+            </ExtensionPoint> -->
 
             <ExtensionPoint xsi:type="LaunchEvent">
               <LaunchEvents>
                 <LaunchEvent Type="OnNewMessageCompose" FunctionName="onNewComposeHandler" />
-                <LaunchEvent Type="OnNewAppointmentOrganizer" FunctionName="onNewComposeHandler" />
+                <!-- <LaunchEvent Type="OnNewAppointmentOrganizer" FunctionName="onNewComposeHandler" /> -->
               </LaunchEvents>
               <SourceLocation resid="residAutoRun" />
             </ExtensionPoint>
