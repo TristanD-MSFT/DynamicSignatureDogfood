@@ -207,6 +207,9 @@
           }
       );
     }
+    else {
+      eventObj.completed({ "key00" : "val00"});
+    }
   }
   exports.onNewComposeHandler = onNewComposeHandler;
   var LaunchEventObj = /** @class */ (function () {
