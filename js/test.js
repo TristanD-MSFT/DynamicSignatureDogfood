@@ -15,25 +15,6 @@ function on_initialization_complete()
 	(
 		function()
 		{
-			$("button").each
-			(
-				function()
-				{
-					$(this).removeAttr("disabled");
-				}
-			);
-
-			$("textarea").each
-			(
-				function()
-				{
-					$(this).removeAttr("disabled");
-				}
-			);
-
-			_output = $("textarea#output");
-
-			$("div#api_status").html("API Ready!");
 		}
 	);
 }
