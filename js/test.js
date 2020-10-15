@@ -15,6 +15,15 @@ function on_initialization_complete()
 	(
 		function()
 		{
+			let size = Office.context.roamingSettings.get("signatureFontSize");
+			if(size != "")
+			{
+				$('fontsize').val = size;
+			}
+			else
+			{
+				$('fontsize').val = 9;
+			}
 		}
 	);
 }
@@ -62,4 +71,19 @@ function test_signature()
 		"<p></p>",
 		{ coercionType: Office.CoercionType.Html }
 	);
+}
+
+function saveSignatureSize()
+{
+	let signatureSize = $('fontsize').val;
+	Office.context.roamingSettings.set("signatureFontSize",signatureSize.toString());
+
+	// Save settings in the mailbox to make it available in future sessions.
+	Office.context.roamingSettings.saveAsync(function(result) {
+        if (result.status !== Office.AsyncResultStatus.Succeeded) {
+          console.error(`Action failed with message ${result.error.message}`);
+        } else {
+          console.log(`Settings saved with status: ${result.status}`);
+        }
+      });
 }
