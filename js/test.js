@@ -19,10 +19,12 @@ function on_initialization_complete()
 			console.log("document ready");
 			let size = Office.context.roamingSettings.get("signatureFontSize");
 			console.log(`Loaded roaming setting: ${size}`);
-			if (size != "") {
-			  $("#fontsize").val(size);
+			if (size == undefined) {
+				console.log(`Setting font size to default.`);
+			  	$("#fontsize").val("9");
 			} else {
-			  $("#fontsize").val("9");
+				console.log(`Setting font size to: ${size}`);
+				$("#fontsize").val(size);	
 			}
 		}
 	);
@@ -77,8 +79,8 @@ function test_signature()
 function insertSignature(fontSize)
 {
 	Office.context.mailbox.item.body.setSignatureAsync(
-		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:" + size + ".0pt'>------------</span></p>" + 
-		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:" + size + ".0pt'>Your family and personal time is important to me; after-hours responses not required or expected!</span></p >" +
+		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:" + fontSize + ".0pt'>------------</span></p>" + 
+		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:" + fontSize + ".0pt'>Your family and personal time is important to me; after-hours responses not required or expected!</span></p >" +
 		"<p></p>",
 		{ coercionType: Office.CoercionType.Html }
 	);
