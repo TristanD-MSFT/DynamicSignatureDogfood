@@ -16,13 +16,10 @@ function on_initialization_complete()
 		function()
 		{
 			let size = Office.context.roamingSettings.get("signatureFontSize");
-			if(size != "")
-			{
-				$('#fontsize').val = size;
-			}
-			else
-			{
-				$('#fontsize').val = 9;
+			if (size != "") {
+			  $("#fontsize").val(size);
+			} else {
+			  $("#fontsize").val("9");
 			}
 		}
 	);
@@ -75,16 +72,14 @@ function test_signature()
 
 function saveSignatureSize()
 {
-	let signatureSize = $('#fontsize').val;
-	Office.context.roamingSettings.set("signatureFontSize",signatureSize.toString());
+	let signatureSize = $("#fontsize").val();
+	Office.context.roamingSettings.set("signatureFontSize", signatureSize.toString());
 
 	// Save settings in the mailbox to make it available in future sessions.
 	Office.context.roamingSettings.saveAsync(function(result) {
         if (result.status !== Office.AsyncResultStatus.Succeeded) {
-			$('#message').val = "Action failed with message: " + result.error.message;
           console.error(`Action failed with message ${result.error.message}`);
         } else {
-			$('#message').val = "Settings saved with status: " + result.status;
           console.log(`Settings saved with status: ${result.status}`);
         }
       });
