@@ -7,6 +7,7 @@ let _output;
 Office.initialize = function(reason)
 {
 	on_initialization_complete();
+	console.log("office.js initialized");
 }
 
 function on_initialization_complete()
@@ -15,7 +16,9 @@ function on_initialization_complete()
 	(
 		function()
 		{
+			console.log("document ready");
 			let size = Office.context.roamingSettings.get("signatureFontSize");
+			console.log(`Loaded roaming setting: ${size}`);
 			if (size != "") {
 			  $("#fontsize").val(size);
 			} else {
@@ -54,7 +57,7 @@ function onNewComposeHandler(eventObj)
 	let day = today.getDay();
   
 	if (day == 0 || day == 6 || time < 8 || time > 16) {
-	  test_signature();
+	  insertSignature("9");
 	}
 
 	eventObj.completed();
@@ -62,9 +65,20 @@ function onNewComposeHandler(eventObj)
 
 function test_signature()
 {
+	let size = Office.context.roamingSettings.get("signatureFontSize");
+	console.log(`Loaded roaming setting: ${size}`);
+	if (size == "") 
+	{
+		size = "9";		
+	}
+	insertSignature(size);
+}
+
+function insertSignature(fontSize)
+{
 	Office.context.mailbox.item.body.setSignatureAsync(
-		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:9.0pt'>------------</span></p>" + 
-		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:9.0pt'>Your family and personal time is important to me; after-hours responses not required or expected!</span></p >" +
+		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:" + size + ".0pt'>------------</span></p>" + 
+		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:" + size + ".0pt'>Your family and personal time is important to me; after-hours responses not required or expected!</span></p >" +
 		"<p></p>",
 		{ coercionType: Office.CoercionType.Html }
 	);
