@@ -81,8 +81,10 @@ function saveSignatureSize()
 	// Save settings in the mailbox to make it available in future sessions.
 	Office.context.roamingSettings.saveAsync(function(result) {
         if (result.status !== Office.AsyncResultStatus.Succeeded) {
+			$('message').val = "Action failed with message: " + result.error.message;
           console.error(`Action failed with message ${result.error.message}`);
         } else {
+			$('message').val = "Settings saved with status: " + result.status;
           console.log(`Settings saved with status: ${result.status}`);
         }
       });
