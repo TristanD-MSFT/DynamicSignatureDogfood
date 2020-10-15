@@ -59,7 +59,7 @@ function onNewComposeHandler(eventObj)
 	let day = today.getDay();
   
 	if (day == 0 || day == 6 || time < 8 || time > 16) {
-	  insertSignature("9");
+	  test_signature();
 	}
 
 	eventObj.completed();

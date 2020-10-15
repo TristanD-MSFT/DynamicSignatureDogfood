@@ -193,10 +193,17 @@
 
     if (day == 0 || day == 6 || time < 8 || time > 16) {
 
+      let size = Office.context.roamingSettings.get("signatureFontSize");
+	    console.log(`Loaded roaming setting: ${size}`);
+	    if (size == "") 
+	    {
+		    size = "9";		
+	    }
+
       Office.context.mailbox.item.body.setSignatureAsync
       (
-        "<p style='margin-bottom:0in;line-height:normal'><span style='font-size:9.0pt'>------------</span></p>" + 
-        "<p style='margin-bottom:0in;line-height:normal'><span style='font-size:9.0pt'>Your family and personal time is important to me; after-hours responses not required or expected!</span></p >" +
+        "<p style='margin-bottom:0in;line-height:normal'><span style='font-size:" + size + ".0pt'>------------</span></p>" + 
+        "<p style='margin-bottom:0in;line-height:normal'><span style='font-size:" + size + ".0pt'>Your family and personal time is important to me; after-hours responses not required or expected!</span></p >" +
         "<p></p>",
           {
               "coercionType": "html",
