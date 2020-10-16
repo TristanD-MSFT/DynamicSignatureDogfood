@@ -18,12 +18,12 @@ function on_initialization_complete()
 		{
 			console.log("document ready");
 			let size = Office.context.roamingSettings.get("signatureFontSize");
-			console.log(`Loaded roaming setting: ${size}`);
+			console.log("Loaded roaming setting: " + size);
 			if (size == undefined) {
-				console.log(`Setting font size to default.`);
+				console.log("Setting font size to default.");
 			  	$("#fontsize").val("9");
 			} else {
-				console.log(`Setting font size to: ${size}`);
+				console.log("Setting font size to: " + size);
 				$("#fontsize").val(size);	
 			}
 		}
@@ -68,7 +68,7 @@ function onNewComposeHandler(eventObj)
 function test_signature()
 {
 	let size = Office.context.roamingSettings.get("signatureFontSize");
-	console.log(`Loaded roaming setting: ${size}`);
+	console.log("Loaded roaming setting: " + size);
 	if (size == "") 
 	{
 		size = "9";		
@@ -94,9 +94,9 @@ function saveSignatureSize()
 	// Save settings in the mailbox to make it available in future sessions.
 	Office.context.roamingSettings.saveAsync(function(result) {
         if (result.status !== Office.AsyncResultStatus.Succeeded) {
-          console.error(`Action failed with message ${result.error.message}`);
+          console.error("Action failed with message: " + result.error.message);
         } else {
-          console.log(`Settings saved with status: ${result.status}`);
+          console.log("Settings saved with status: " + result.status);
         }
       });
 }
