@@ -1,6 +1,6 @@
 /*
- * @file: test.js
- * @author: Microsoft
+ * @file: test.js (used by OWA)
+ * @author: Tristan Davis
  */
 let _output;
 
