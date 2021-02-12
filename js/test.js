@@ -127,12 +127,12 @@ function saveSignatureSize()
 	if(parseInt(startTime) >= parseInt(endTime))
 	{
 		console.log("start time before end time? start time = " + startTime + ", end time = " + endTime);
-		$("#errorMessage").val("ERROR: Start time cannot be before end time.");
+		$("#errorMessage").text("ERROR: Start time cannot be before end time.");
 		return;
 	}
 	else
 	{
-		$("#errorMessage").val("");
+		$("#errorMessage").text("");
 	}
 
 	let signatureSize = $("#fontsize").val();
