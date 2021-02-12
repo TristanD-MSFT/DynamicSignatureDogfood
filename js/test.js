@@ -29,7 +29,7 @@ function on_initialization_complete()
 
 			let startTime = Office.context.roamingSettings.get("startTime");
 			console.log("Loaded roaming setting: " + startTime);
-			if (startTIme == undefined) {
+			if (startTime == undefined) {
 				console.log("Setting start time to default.");
 			  	$("#startTime").val("8");
 			} else {
