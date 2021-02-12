@@ -26,6 +26,27 @@ function on_initialization_complete()
 				console.log("Setting font size to: " + size);
 				$("#fontsize").val(size);	
 			}
+
+			let startTime = Office.context.roamingSettings.get("startTime");
+			console.log("Loaded roaming setting: " + startTime);
+			if (startTIme == undefined) {
+				console.log("Setting start time to default.");
+			  	$("#startTime").val("8");
+			} else {
+				console.log("Setting start time to: " + startTime);
+				$("#startTime").val(startTime);	
+			}
+
+			let endTime = Office.context.roamingSettings.get("endTime");
+			console.log("Loaded roaming setting: " + endTime);
+			if (endTime == undefined) {
+				console.log("Setting end time to default.");
+			  	$("#endTime").val("17");
+			} else {
+				console.log("Setting end time to: " + endTime);
+				$("#endTime").val(endTime);	
+			}
+
 		}
 	);
 }
@@ -57,8 +78,20 @@ function onNewComposeHandler(eventObj)
 	let today = new Date();
 	let time = today.getHours();
 	let day = today.getDay();
+
+	let startTime = Office.context.roamingSettings.get("startTime");
+	let endTime = Office.context.roamingSettings.get("endTime");
+	console.log("Loaded roaming settings");
+	if (startTime == "") 
+	{
+		startTime = 7;		
+	}
+	if (endTime == "")
+	{
+		endTime = 17;
+	}
   
-	if (day == 0 || day == 6 || time < 8 || time > 16) {
+	if (day == 0 || day == 6 || time < startTime || time >= endTime) {
 	  test_signature();
 	}
 
@@ -88,8 +121,24 @@ function insertSignature(fontSize)
 
 function saveSignatureSize()
 {
+	let startTime = $("#startTime").val();
+	let endTime = $("#endTime").val();
+
+	if(startTime >= endtime)
+	{
+		$("#errorMessage").val("ERROR: Start time cannot be before end time.");
+		return;
+	}
+	else
+	{
+		$("#errorMessage").val("");
+	}
+
 	let signatureSize = $("#fontsize").val();
+
 	Office.context.roamingSettings.set("signatureFontSize", signatureSize.toString());
+	Office.context.roamingSettings.set("startTime", startTime.toString());
+	Office.context.roamingSettings.set("endTime", endTime.toString());
 
 	// Save settings in the mailbox to make it available in future sessions.
 	Office.context.roamingSettings.saveAsync(function(result) {

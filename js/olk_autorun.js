@@ -9,10 +9,22 @@ function onNewComposeHandler(eventObj)
   let time = today.getHours();
   let day = today.getDay();
 
-  if (day == 0 || day == 6 || time < 8 || time > 16) {
+  let startTime = Office.context.roamingSettings.get("startTime");
+	let endTime = Office.context.roamingSettings.get("endTime");
+	console.log("Loaded roaming settings");
+	if (startTime == "") 
+	{
+		startTime = 7;		
+	}
+	if (endTime == "")
+	{
+		endTime = 17;
+	}
+  
+	if (day == 0 || day == 6 || time < startTime || time >= endTime) {
 
     let size = Office.context.roamingSettings.get("signatureFontSize");
-    console.log(`Loaded roaming setting: ${size}`);
+    console.log("Loaded roaming setting: " + size);
     if (size == "") 
     {
       size = "9";		
