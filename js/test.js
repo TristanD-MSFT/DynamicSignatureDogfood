@@ -124,7 +124,7 @@ function saveSignatureSize()
 	let startTime = $("#startTime").val();
 	let endTime = $("#endTime").val();
 
-	if(startTime >= endtime)
+	if(startTime >= endTime)
 	{
 		$("#errorMessage").val("ERROR: Start time cannot be before end time.");
 		return;
