@@ -108,6 +108,23 @@ function onNewComposeHandler(eventObj)
 	eventObj.completed();
 }
 
+function deleteRoamingSettings()
+{
+	Office.context.roamingSettings.remove("signatureFontSize");
+	Office.context.roamingSettings.remove("startTime");
+	Office.context.roamingSettings.remove("endTime");
+	Office.context.roamingSettings.remove("signatureMessage");
+
+		// Save settings in the mailbox to make it available in future sessions.
+		Office.context.roamingSettings.saveAsync(function(result) {
+			if (result.status !== Office.AsyncResultStatus.Succeeded) {
+			  console.error("Action failed with message: " + result.error.message);
+			} else {
+			  console.log("Settings saved with status: " + result.status);
+			}
+		  });
+}
+
 function test_signature()
 {
 	let size = Office.context.roamingSettings.get("signatureFontSize");
