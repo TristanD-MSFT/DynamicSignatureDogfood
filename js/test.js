@@ -47,6 +47,16 @@ function on_initialization_complete()
 				$("#endTime").val(endTime);	
 			}
 
+			let message = Office.context.roamingSettings.get("signatureMessage");
+			console.log("Loaded roaming setting: " + message);
+			if (message == undefined) {
+				console.log("Setting message to default.");
+			  	$("#txtMessage").val("Your family and personal time is important to me; after-hours responses not required or expected!");
+			} else {
+				console.log("Setting end time to: " + message);
+				$("#txtMessage").val(message);	
+			}
+
 		}
 	);
 }
@@ -106,14 +116,22 @@ function test_signature()
 	{
 		size = "9";		
 	}
-	insertSignature(size);
+
+	let message = Office.context.roamingSettings.get("signatureMessage");
+	console.log("Loaded roaming setting: " + message);
+	if (message == "") 
+	{
+		message = "Your family and personal time is important to me; after-hours responses not required or expected!";		
+	}
+
+	insertSignature(size, message);
 }
 
-function insertSignature(fontSize)
+function insertSignature(fontSize, message)
 {
 	Office.context.mailbox.item.body.setSignatureAsync(
 		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:" + fontSize + ".0pt'>------------</span></p>" + 
-		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:" + fontSize + ".0pt'>Your family and personal time is important to me; after-hours responses not required or expected!</span></p >" +
+		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:" + fontSize + ".0pt'>" + message + "</span></p>" +
 		"<p></p>",
 		{ coercionType: Office.CoercionType.Html }
 	);
@@ -121,8 +139,10 @@ function insertSignature(fontSize)
 
 function saveSignatureSize()
 {
+	let signatureSize = $("#fontsize").val();
 	let startTime = $("#startTime").val();
 	let endTime = $("#endTime").val();
+	let message = $("#txtMessage").val();
 
 	if(parseInt(startTime) >= parseInt(endTime))
 	{
@@ -135,11 +155,10 @@ function saveSignatureSize()
 		$("#errorMessage").text("");
 	}
 
-	let signatureSize = $("#fontsize").val();
-
 	Office.context.roamingSettings.set("signatureFontSize", signatureSize.toString());
 	Office.context.roamingSettings.set("startTime", startTime.toString());
 	Office.context.roamingSettings.set("endTime", endTime.toString());
+	Office.context.roamingSettings.set("signatureMessage", message.toString());
 
 	// Save settings in the mailbox to make it available in future sessions.
 	Office.context.roamingSettings.saveAsync(function(result) {
