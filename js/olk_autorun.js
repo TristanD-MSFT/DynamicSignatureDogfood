@@ -34,7 +34,7 @@ function onNewComposeHandler(eventObj)
     console.log("Loaded roaming setting: " + message);
     if (message == "") 
     {
-      message = "Your family and personal time is important to me; after-hours responses not required or expected!";		
+      message = "I sometimes take personal time during the day and process email outside normal hours because that supports my family schedule more effectively. Your family and personal time is important to me, so after-hours responses are not required or expected!";		
     }
 
     Office.context.mailbox.item.body.setSignatureAsync

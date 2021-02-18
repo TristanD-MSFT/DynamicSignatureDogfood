@@ -51,7 +51,7 @@ function on_initialization_complete()
 			console.log("Loaded roaming setting: " + message);
 			if (message == undefined) {
 				console.log("Setting message to default.");
-			  	$("#txtMessage").val("Your family and personal time is important to me; after-hours responses not required or expected!");
+			  	$("#txtMessage").val("I sometimes take personal time during the day and process email outside normal hours because that supports my family schedule more effectively. Your family and personal time is important to me, so after-hours responses are not required or expected!");
 			} else {
 				console.log("Setting end time to: " + message);
 				$("#txtMessage").val(message);	
@@ -138,7 +138,7 @@ function test_signature()
 	console.log("Loaded roaming setting: " + message);
 	if (message == "") 
 	{
-		message = "Your family and personal time is important to me; after-hours responses not required or expected!";		
+		message = "I sometimes take personal time during the day and process email outside normal hours because that supports my family schedule more effectively. Your family and personal time is important to me, so after-hours responses are not required or expected!";		
 	}
 
 	insertSignature(size, message);
