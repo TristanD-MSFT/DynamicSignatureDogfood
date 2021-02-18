@@ -12,11 +12,11 @@ function onNewComposeHandler(eventObj)
   let startTime = Office.context.roamingSettings.get("startTime");
 	let endTime = Office.context.roamingSettings.get("endTime");
 	console.log("Loaded roaming settings");
-	if (startTime == "") 
+	if (startTime == undefined) 
 	{
 		startTime = 7;		
 	}
-	if (endTime == "")
+	if (endTime == undefined)
 	{
 		endTime = 17;
 	}
@@ -25,14 +25,14 @@ function onNewComposeHandler(eventObj)
 
     let size = Office.context.roamingSettings.get("signatureFontSize");
     console.log("Loaded roaming setting: " + size);
-    if (size == "") 
+    if (size == undefined) 
     {
       size = "9";		
     }
 
     let message = Office.context.roamingSettings.get("signatureMessage");
     console.log("Loaded roaming setting: " + message);
-    if (message == "") 
+    if (message == undefined) 
     {
       message = "I sometimes take personal time during the day and process email outside normal hours because that supports my family schedule more effectively. Your family and personal time is important to me, so after-hours responses are not required or expected!";		
     }
