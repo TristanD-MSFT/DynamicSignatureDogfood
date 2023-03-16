@@ -147,8 +147,8 @@ function test_signature()
 function insertSignature(fontSize, message)
 {
 	Office.context.mailbox.item.body.setSignatureAsync(
-		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:" + fontSize + ".0pt;color:#808080;mso-no-proof:yes'>------------</span></p>" + 
-		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:" + fontSize + ".0pt;color:#808080;mso-no-proof:yes'>" + message + "</span></p>" +
+		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:" + fontSize + ".0pt;color:#5F5F5F;mso-no-proof:yes'>------------</span></p>" + 
+		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:" + fontSize + ".0pt;color:#5F5F5F;mso-no-proof:yes'>" + message + "</span></p>" +
 		"<p></p>",
 		{ coercionType: Office.CoercionType.Html }
 	);
