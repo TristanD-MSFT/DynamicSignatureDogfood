@@ -147,8 +147,8 @@ function test_signature()
 function insertSignature(fontSize, message)
 {
 	Office.context.mailbox.item.body.setSignatureAsync(
-		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:" + fontSize + ".0pt;color:#767171;mso-themecolor:background2;mso-themeshade:128;mso-style-textfill-fill-color:#767171;mso-style-textfill-fill-themecolor:background2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;mso-no-proof:yes'>------------</span></p>" + 
-		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:" + fontSize + ".0pt;color:#767171;mso-themecolor:background2;mso-themeshade:128;mso-style-textfill-fill-color:#767171;mso-style-textfill-fill-themecolor:background2;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:lumm=50000;mso-no-proof:yes'>" + message + "</span></p>" +
+		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:" + fontSize + ".0pt;color:#808080;mso-no-proof:yes'>------------</span></p>" + 
+		"<p style='margin-bottom:0in;line-height:normal'><span style='font-size:" + fontSize + ".0pt;color:#808080;mso-no-proof:yes'>" + message + "</span></p>" +
 		"<p></p>",
 		{ coercionType: Office.CoercionType.Html }
 	);
